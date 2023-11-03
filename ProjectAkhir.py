@@ -362,4 +362,4 @@ while True:
         else:
             print("Pilihan tidak valid. Silakan coba lagi.")
     except KeyboardInterrupt:
-        print("cieee")
+        print("Tolong masukkan input yang benar")
