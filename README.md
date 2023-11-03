@@ -20,7 +20,7 @@
 
    - Masukkan "raisky" sebagai nama pengguna.
    - Masukkan "6086" sebagai kata sandi. Kata sandi akan disembunyikan dengan tanda bintang (*).
-   - Setelah berhasil login, program akan memberi tahu Anda bahwa login berhasil.
+   - Setelah berhasil login, program akan memberi tahu User bahwa login telah berhasil.
 
 4. Setelah berhasil login, Admin dapat melakukan beberapa operasi administratif. Ini adalah daftar operasi yang tersedia:
    - Tambah Produk (Operasi 1):
@@ -61,53 +61,53 @@
 ### **Demonstrasi Penggunaan Program Sebagai Customer**
 
 1. Jalankan program.
-2. Pilih peran Anda sebagai Customer dengan memasukkan "2" saat diminta.
+2. Pilih peran sebagai Customer dengan memasukkan "2" saat diminta.
 3. Customer memiliki dua opsi, yaitu Sign In atau Sign Up:
    - Sign In (Operasi 1):
 
-      - Jika Anda sudah memiliki akun, Anda dapat Sign In. Contoh:
+      - Jika User sudah memiliki akun, User dapat Sign In. Contoh:
 
          - Masukkan "1" untuk memilih operasi "Sign In".
          - Masukkan nama pengguna yang sudah ada, misalnya, "customer1".
          - Masukkan kata sandi yang sesuai dengan nama pengguna tersebut.
-         - Jika login berhasil, Anda akan masuk sebagai pembeli (Buyer).
+         - Jika login berhasil, User akan masuk sebagai pembeli (Buyer).
 
    - Sign Up (Operasi 2):
 
-      - Jika Anda belum memiliki akun, Anda dapat Sign Up. Contoh:
+      - Jika User belum memiliki akun, User dapat Sign Up. Contoh:
 
          - Masukkan "2" untuk memilih operasi "Sign Up".
          - Buat nama pengguna baru, misalnya, "customer2".
          - Buat kata sandi untuk akun baru tersebut.
-         - Akun baru akan ditambahkan, dan Anda akan masuk sebagai pembeli (Buyer).
+         - Akun baru akan ditambahkan, dan User akan masuk sebagai pembeli (Buyer).
 
-4. Setelah berhasil Sign In atau Sign Up, Anda akan masuk ke peran pembeli (Buyer) dan memiliki beberapa opsi:
+4. Setelah berhasil Sign In atau Sign Up, User akan masuk ke peran pembeli (Buyer) dan memiliki beberapa opsi:
 
    - Lihat / Top Up E-Money (Operasi 1):
 
-      - Anda dapat melihat saldo E-Money Anda dan melakukan top up jika diinginkan.
+      - User dapat melihat saldo E-Money User dan melakukan top up jika diinginkan.
 
    - Beli Buku (Operasi 2):
 
-      - Anda dapat memilih produk yang ingin Anda beli dari daftar produk yang tersedia.
+      - User dapat memilih produk yang ingin User beli dari daftar produk yang tersedia.
 
    - Lihat Keranjang (Operasi 3):
 
-      - Anda dapat melihat isi keranjang belanja Anda.
+      - User dapat melihat isi keranjang belanja User.
 
    - Checkout (Operasi 4):
 
-      - Anda dapat melakukan pembelian produk yang ada di keranjang belanja Anda.
+      - User dapat melakukan pembelian produk yang ada di keranjang belanja User.
 
    - Keluar (Operasi 5):
 
-      - Anda dapat keluar dari peran Customer.
+      - User dapat keluar dari peran Customer.
 
 5. Misalnya, untuk membeli produk:
 
    - Masukkan "2" untuk memilih operasi "Beli Buku".
-   - Lihat daftar produk yang tersedia dan pilih nomor produk yang ingin Anda beli.
-   - Produk akan ditambahkan ke keranjang belanja Anda.
-   - Anda dapat melihat isi keranjang dengan memilih "3" atau melakukan checkout dengan memilih "4".
+   - Lihat daftar produk yang tersedia dan pilih nomor produk yang ingin User beli.
+   - Produk akan ditambahkan ke keranjang belanja User.
+   - User dapat melihat isi keranjang dengan memilih "3" atau melakukan checkout dengan memilih "4".
 
 Demikianlah demonstrasi penggunaan program Toko Buku sebagai Admin dan Customer. Program ini memungkinkan Admin mengelola produk dan Customer untuk membeli produk dengan menggunakan saldo E-Money. Semua operasi dan interaksi sesuai dengan peran masing-masing pengguna.
