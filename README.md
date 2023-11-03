@@ -1,18 +1,18 @@
 # Kelompok9PADasPro
 Project Akhir (PA) Praktikum DasPro - Kelompok 9
 
--  Achmad Rizqy Pranata
-   (2209116086)
+**-  Achmad Rizqy Pranata
+   (2209116086)**
 
--  Muhammad Luqman
-(2309116068)
+**-  Muhammad Luqman
+(2309116068)**
 
--  Julia Fatikhah Noor
-   (2309116069)
+**-  Julia Fatikhah Noor
+   (2309116069)**
 
-Demo Dokumetasi: 
+## **Demo Dokumetasi:**
 
-Demonstrasi Penggunaan Program Sebagai Admin:
+### **Demonstrasi Penggunaan Program Sebagai Admin:**
 
 1. Jalankan program.
 2. Pilih peran sebagai Admin dengan memasukkan "1" saat diminta.
@@ -53,7 +53,7 @@ Demonstrasi Penggunaan Program Sebagai Admin:
 
       - Admin dapat keluar dari peran Admin dengan memilih "5".
 
-Demonstrasi Penggunaan Program Sebagai Customer:
+### **Demonstrasi Penggunaan Program Sebagai Customer:**
 
 1. Jalankan program.
 2. Pilih peran Anda sebagai Customer dengan memasukkan "2" saat diminta.
