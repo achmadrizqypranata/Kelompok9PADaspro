@@ -17,13 +17,16 @@
 1. Jalankan program.
 2. Pilih peran sebagai Admin dengan memasukkan "1" saat diminta.
 3. Admin perlu melakukan login terlebih dahulu. Ini adalah contoh langkah-langkah untuk masuk sebagai Admin:
+
    1. Masukkan "raisky" sebagai nama pengguna.
    2. Masukkan "6086" sebagai kata sandi. Kata sandi akan disembunyikan dengan tanda bintang (*).
    3. Setelah berhasil login, program akan memberi tahu Anda bahwa login berhasil.
+
 4. Setelah berhasil login, Admin dapat melakukan beberapa operasi administratif. Ini adalah daftar operasi yang tersedia:
    - Tambah Produk (Operasi 1):
 
       - Admin dapat menambahkan produk baru ke dalam toko buku. Contoh:
+
          1. Masukkan "1" untuk memilih operasi "Tambah Produk".
          2. Masukkan nama produk baru, misalnya, "Harry Potter and the Philosopher's Stone".
          3. Masukkan harga produk, misalnya, "100000".
@@ -36,6 +39,7 @@
    - Perbarui Produk (Operasi 3):
 
       - Admin dapat memperbarui produk berdasarkan nama. Contoh:
+
          1. Masukkan "3" untuk memilih operasi "Perbarui Produk".
          2. Masukkan nama produk yang akan diperbarui, misalnya, "Harry Potter and the Philosopher's Stone".
          3. Masukkan nama baru untuk produk tersebut, misalnya, "Harry Potter and the Sorcerer's Stone".
@@ -45,6 +49,7 @@
    - Hapus Produk (Operasi 4):
 
       - Admin dapat menghapus produk berdasarkan nama. Contoh:
+
          1. Masukkan "4" untuk memilih operasi "Hapus Produk".
          2. Masukkan nama produk yang akan dihapus, misalnya, "Harry Potter and the Sorcerer's Stone".
          3. Produk tersebut akan dihapus dari daftar produk.
@@ -61,6 +66,7 @@
    - Sign In (Operasi 1):
 
       - Jika Anda sudah memiliki akun, Anda dapat Sign In. Contoh:
+
          1. Masukkan "1" untuk memilih operasi "Sign In".
          2. Masukkan nama pengguna yang sudah ada, misalnya, "customer1".
          3. Masukkan kata sandi yang sesuai dengan nama pengguna tersebut.
@@ -69,6 +75,7 @@
    - Sign Up (Operasi 2):
 
       - Jika Anda belum memiliki akun, Anda dapat Sign Up. Contoh:
+
          1. Masukkan "2" untuk memilih operasi "Sign Up".
          2. Buat nama pengguna baru, misalnya, "customer2".
          3. Buat kata sandi untuk akun baru tersebut.
