@@ -23,12 +23,7 @@ def load_products_from_file():
             products.extend(data)
 
 # Fungsi untuk menampilkan produk
-# Fungsi untuk menampilkan produk
 def display_products(products_to_display=None):
-
-    # Memuat data produk dari file JSON ke variabel global
-    load_products_from_file()
-
     if not products_to_display:
         print("Tidak ada produk yang tersedia.")
         return
@@ -51,8 +46,15 @@ def top_up_balance():
     choice = input("Apakah Anda ingin top up saldo E-Money? (ya/tidak): ")
     if choice.lower() == "ya":
         amount = int(input("Masukkan jumlah yang ingin Anda top up: Rp. "))
-        user_balance += amount
-        print(f"Saldo E-Money Anda sekarang: Rp. {user_balance:.2f}")
+        if amount > 0:
+            user_balance += amount
+            print(f"Saldo E-Money Anda sekarang: Rp. {user_balance:.2f}")
+        else:
+            print("Saldo harus lebih dari 0")
+    elif choice.lower() == "tidak":
+        return
+    else:
+        print("Pilihan Anda tidak valid")
 
 # Fungsi untuk menambahkan produk ke keranjang belanja
 def add_to_cart(product):
@@ -65,8 +67,11 @@ def view_shopping_cart():
         print("Keranjang belanja kosong.")
     else:
         print("Isi Keranjang Belanja:")
+        table = PrettyTable()
+        table.field_names = ["No.", "Nama Produk", "Harga"]
         for i, product in enumerate(shopping_cart, start=1):
-            print(f"{i}. {product['name']} - Rp {product['price']}")
+            table.add_row([i, product['name'], product['price']])
+        print(table)
 
 # Fungsi untuk melakukan pembelian
 def checkout():
@@ -112,13 +117,19 @@ def checkout():
     for product in shopping_cart:
         product_table.add_row([product['name'], product['price']])
 
-    # Menampilkan invoice
-    print("Invoice Belanja:")
-    print(product_table)
-    print(f"Total Harga: Rp {total_price:.2f}")
+    # Menampilkan informasi pengguna dan invoice belanja dalam satu tabel
+    user_invoice_table = PrettyTable()
+    user_invoice_table.field_names = ["Deskripsi", "Data"]
+    user_invoice_table.add_row(["Nama Penerima", receiver_name])
+    user_invoice_table.add_row(["Alamat Pengiriman", delivery_address])
+    user_invoice_table.add_row(["Nomor Telepon", phone_number])
+    user_invoice_table.add_row(["Jasa Pengiriman", delivery_service])
+    user_invoice_table.add_row(["Invoice Belanja", product_table])
+    user_invoice_table.add_row(["Total Harga", f"Rp {total_price:.2f}"])
 
-    # Menampilkan informasi penerima, alamat, nomor telepon, dan jasa pengiriman
-    print(invoice_table)
+    # Menampilkan invoice pengguna dan belanja dalam satu tabel
+    print("Invoice Belanja dan Informasi Pengguna:")
+    print(user_invoice_table)
 
     if user_balance >= total_price:
         user_balance -= total_price
@@ -127,12 +138,10 @@ def checkout():
     else:
         print("Saldo E-Money Anda tidak mencukupi untuk melakukan checkout.")
 
-
-
 # Fungsi utama untuk pembeli
 def buyer_main():
     global user_balance
-    load_products_from_file()  # Memuat produk saat memasuki menu pembeli
+    display_products(products)  # Memanggil fungsi ini untuk menampilkan daftar produk
     while True:
         print("\nMenu Pembeli:")
         print("1. Lihat / Top Up E-Money")
@@ -146,7 +155,7 @@ def buyer_main():
         if choice == "1":
             top_up_balance()
         elif choice == "2":
-            display_products(products)  # Memanggil fungsi ini untuk menampilkan daftar produk
+            # Memanggil fungsi ini untuk menampilkan daftar produk
             choice = input("Pilih nomor produk yang ingin Anda beli: ")
             if choice.isdigit() and 0 < int(choice) <= len(products):
                 selected_product = products[int(choice) - 1]
@@ -207,7 +216,7 @@ def login_admin():
         admin = {
             "raisky": "6086",
             "luqman": "6068",
-            "Julia": "6069",
+            "julia": "6069",
         }
 
         # Minta pengguna untuk memasukkan nama pengguna dan kata sandi
@@ -239,7 +248,7 @@ def table_products():
 def tambah_product():
     table_products()
     nama_products = input("Nama Produk: ")
-    harga_products = float(input("Harga Produk: "))
+    harga_products = int(input("Harga Produk: "))
     
     product = {
         "name": nama_products,
@@ -264,7 +273,7 @@ def perbarui_product():
     for product in products:
         if product['name'] == product_name:
             nama_baru = input("Nama Produk Baru: ")
-            harga_baru = float(input("Harga Produk Baru: "))
+            harga_baru = int(input("Harga Produk Baru: "))
             product['name'] = nama_baru
             product['price'] = harga_baru
             save_products_to_file()
@@ -288,65 +297,69 @@ def hapus_product():
     print("Produk tidak ditemukan.")
 
 if __name__ == "__main__":
+    load_products_from_file()  # Memuat produk saat memasuki program
     data_Customer = load_data_Customer()
 
 while True:
-    print("="*100)
-    print("Selamat datang di Toko Buku ")
-    print("="*100)
-    print("1. Admin")
-    print("2. Customer")
-    print("3. Keluar")
-    peran = input("Pilih peran Anda (Admin/Customer): ")
-    print("="*100)
+    try:
+        print("="*100)
+        print("Selamat datang di Toko Buku ")
+        print("="*100)
+        print("1. Admin")
+        print("2. Customer")
+        print("3. Keluar")
+        peran = input("Pilih peran Anda (Admin/Customer): ")
+        print("="*100)
 
-    if peran == "1":
-        if login_admin():
-            while True:
-                print("\nMenu Admin:")
-                print("1. Tambah Produk")
-                print("2. Lihat Produk")
-                print("3. Perbarui Produk")
-                print("4. Hapus Produk")
-                print("5. Keluar")
-                choice = input("Pilih operasi (1/2/3/4/5): ")
+        if peran == "1":
+            if login_admin():
+                while True:
+                    print("\nMenu Admin:")
+                    print("1. Tambah Produk")
+                    print("2. Lihat Produk")
+                    print("3. Perbarui Produk")
+                    print("4. Hapus Produk")
+                    print("5. Keluar")
+                    choice = input("Pilih operasi (1/2/3/4/5): ")
 
-                if choice == "1":
-                    tambah_product()
-                elif choice == "2":
-                    melihat_products()
-                elif choice == "3":
-                    perbarui_product()
-                elif choice == "4":
-                    hapus_product()
-                elif choice == "5":
-                    print("Terima kasih! Sampai jumpa.")
-                    break
-                else:
-                    print("Pilihan tidak valid. Silakan coba lagi.")
-
-    elif peran == "2":
-            while True:
-                print("\nLogin Customer:")
-                print("1. Sign In")
-                print("2. Sign Up")
-                print("3. Keluar")
-                pilihan = input("Pilih operasi (1/2/3): ")
-
-                if pilihan == "1":
-                    if sign_in_Customer(data_Customer):
-                        buyer_main()
+                    if choice == "1":
+                        tambah_product()
+                    elif choice == "2":
+                        melihat_products()
+                    elif choice == "3":
+                        perbarui_product()
+                    elif choice == "4":
+                        hapus_product()
+                    elif choice == "5":
+                        print("Terima kasih! Sampai jumpa.")
                         break
-                elif pilihan == "2":
-                    if sign_up_Customer(data_Customer):
-                        buyer_main()
+                    else:
+                        print("Pilihan tidak valid. Silakan coba lagi.")
+
+        elif peran == "2":
+                while True:
+                    print("\nLogin Customer:")
+                    print("1. Sign In")
+                    print("2. Sign Up")
+                    print("3. Keluar")
+                    pilihan = input("Pilih operasi (1/2/3): ")
+
+                    if pilihan == "1":
+                        if sign_in_Customer(data_Customer):
+                            buyer_main()
+                            break
+                    elif pilihan == "2":
+                        if sign_up_Customer(data_Customer):
+                            buyer_main()
+                            break
+                    elif pilihan == "3":
                         break
-                elif pilihan == "3":
-                    break
-                else:
-                    print("Pilihan tidak valid. Silakan coba lagi.")
-    elif peran == "3":
-        print("Terima kasih! Sampai jumpa.")
-        break
-    else:
-        print("Pilihan tidak valid. Silakan coba lagi.")
+                    else:
+                        print("Pilihan tidak valid. Silakan coba lagi.")
+        elif peran == "3":
+            print("Terima kasih! Sampai jumpa.")
+            break
+        else:
+            print("Pilihan tidak valid. Silakan coba lagi.")
+    except KeyboardInterrupt:
+        print("cieee")
